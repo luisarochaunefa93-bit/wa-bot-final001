@@ -147,9 +147,9 @@ def procesar_comando(mensaje):
 @app.route('/webhook', methods=['GET', 'POST'])
 def webhook():
     if request.method == 'GET':
-        if request.args.get('hub.verify_token') == VERIFY_TOKEN:
-            return request.args.get('hub.challenge')
-        return "Error de verificación", 403
+        return "OK", 200
+
+
 
     if request.method == 'POST':
         datos = request.json
