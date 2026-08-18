@@ -166,7 +166,10 @@ def webhook():
 
         time.sleep(random.uniform(1.0, 4.0))
         respuesta_ia = preguntar_deepseek(mensaje)
-        enviar_mensaje(numero, respuesta_ia)
+if respuesta_ia:
+    enviar_mensaje(numero, respuesta_ia)
+else:
+    enviar_mensaje(numero, "No pude procesar tu mensaje. Intenta con '!estado'.")
         return jsonify({"status": "ok"}), 200
 
 # ==========================================
